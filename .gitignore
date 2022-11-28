@@ -1,3 +1,4 @@
 # oss key
 etc/.secret.env
 etc/.test.env
+cloud-station/pro/etc/test.env
