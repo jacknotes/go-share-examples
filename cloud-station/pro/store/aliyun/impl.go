@@ -13,6 +13,14 @@ var (
 	validate = validator.New()
 )
 
+// 这个对象，实现我们定义的接口
+type impl struct {
+	// oss 服务
+	Endpoint string `validate:"required"` //校验参数是需要的，使用反射时，属性需要大写开头
+	Ak       string `validate:"required"`
+	Sk       string `validate:"required"`
+}
+
 func NewAliyunOssUpload(endpoint, ak, sk string) (store.OSSUploader, error) {
 	uploader := &impl{
 		Endpoint: endpoint,
@@ -25,14 +33,6 @@ func NewAliyunOssUpload(endpoint, ak, sk string) (store.OSSUploader, error) {
 	}
 
 	return uploader, nil
-}
-
-// 这个对象，实现我们定义的接口
-type impl struct {
-	// oss 服务
-	Endpoint string `validate:"required"` //校验参数是需要的，使用反射时，属性需要大写开头
-	Ak       string `validate:"required"`
-	Sk       string `validate:"required"`
 }
 
 func (i *impl) Validate() error {

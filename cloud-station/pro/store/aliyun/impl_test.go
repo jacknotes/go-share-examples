@@ -1,7 +1,6 @@
 package aliyun_test
 
 import (
-	"fmt"
 	"jacknotes/go-share-examples/cloud-station/pro/store/aliyun"
 	"os"
 	"testing"
@@ -26,9 +25,10 @@ func TestUpload(t *testing.T) {
 		// 测试aliyun impl upload方法
 		downloadUrl, err := uploader.Upload(bn, "impl.go", "impl.go")
 
-		//当前路径
-		workdir, _ := os.Getwd()
-		fmt.Println("workdir:", workdir)
+		// //当前路径
+		// workdir, _ := os.Getwd()
+		// fmt.Println("workdir:", workdir)
+
 		// // 为了简化逻辑，可以更形象的表现出来，引用后面的assert
 		// if err != nil {
 		// 	t.Fatal(err)
