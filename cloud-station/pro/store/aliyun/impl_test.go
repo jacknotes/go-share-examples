@@ -40,7 +40,7 @@ func TestUpload(t *testing.T) {
 
 		// if err == nil，相当于should.NoError(err)，如果没有error
 		if should.NoError(err) {
-			// downloadURL不为空
+			// downloadURL不为空，就单元测试通过
 			should.NotEmpty(downloadUrl)
 		}
 	}

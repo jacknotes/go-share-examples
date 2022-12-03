@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/AlecAivazis/survey/v2"
+	"github.com/AlecAivazis/survey/v2" // 开源好用的第三方库，作用是隐藏输入的密码
 	"github.com/spf13/cobra"
 
 	"jacknotes/go-share-examples/cloud-station/pro/store"
@@ -106,7 +106,6 @@ func getProvider() (p store.OSSUploader, err error) {
 }
 
 func getSecretKeyFromInputV2() {
-
 	prompt := &survey.Password{
 		Message: "请输入secret key: ",
 	}
@@ -119,5 +118,6 @@ func getSecretKeyFromInputV2() {
 func init() {
 	uploadCmd.PersistentFlags().StringVarP(&bucketName, "bucket_name", "b", "devopscloud-station", "上传文件的目录")
 	uploadCmd.PersistentFlags().StringVarP(&filename, "file_name", "f", "", "上传文件的名称")
+	// 将uploadCmd配置为RootCmd的子命令
 	RootCmd.AddCommand(uploadCmd)
 }
